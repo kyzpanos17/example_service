@@ -1,0 +1,76 @@
+2024-03-01 19:00:36,014 - ERROR - Exception on /api/get_projects [GET]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1845, in finalize_request
+    response = self.make_response(rv)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2138, in make_response
+    raise TypeError(
+TypeError: The view function for 'get_projects' did not return a valid response. The function either returned None or ended without a return statement.
+2024-03-01 19:02:16,805 - ERROR - Exception on /api/get_projects [GET]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/kyzpanos/Documents/Projects/Service_Example/temp/app/routes.py", line 34, in get_projects
+    print(projects)
+UnboundLocalError: local variable 'projects' referenced before assignment
+2024-03-02 14:46:51,605 - ERROR - Exception on /appinterface [GET]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1845, in finalize_request
+    response = self.make_response(rv)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2138, in make_response
+    raise TypeError(
+TypeError: The view function for 'appinterface.show' did not return a valid response. The function either returned None or ended without a return statement.
+2024-03-02 16:58:55,572 - ERROR - Exception on /api/upload [POST]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/kyzpanos/Documents/Projects/Service_Example/app/routes.py", line 104, in upload_file
+    if file and sv.allowed_file(file.filename, app.config['ALLOWED_EXTENSIONS']):
+KeyError: 'ALLOWED_EXTENSIONS'
+2024-03-02 17:00:25,790 - ERROR - Exception on /api/upload [POST]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/kyzpanos/Documents/Projects/Service_Example/app/routes.py", line 103, in upload_file
+    if file and sv.allowed_file(file.filename, app.config['ALLOWED_EXTENSIONS']):
+KeyError: 'ALLOWED_EXTENSIONS'
+2024-03-02 17:04:33,056 - ERROR - Exception on /api/upload [POST]
+Traceback (most recent call last):
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/kyzpanos/Documents/Projects/Service_Example/app/routes.py", line 106, in upload_file
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+  File "/home/kyzpanos/anaconda3/envs/service_example/lib/python3.8/site-packages/werkzeug/datastructures/file_storage.py", line 125, in save
+    dst = open(dst, "wb")
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads/test.csv'

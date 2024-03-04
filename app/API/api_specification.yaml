@@ -1,0 +1,219 @@
+swagger: "2.0"
+info:
+  title: "Flask Service Example"
+  description: "This is an example of a flask service."
+  version: "1.0.0"
+basePath: "/api"
+paths:
+  /get_projects:
+    get:
+      summary: "Get all projects"
+      tags:
+        - Projects
+      description: "The user can retrieve all the project created in the App"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id:
+                  type: "string"
+                  example: 1
+                name:
+                  type: "string"
+                  example: 1
+                dataset_path:
+                  type: "string"
+                  example: "/path/to/dataset"
+                config_path:
+                  type: "string"
+                  example: "/path/to/configuration"
+                date:
+                  type: "string"
+                  example: "24/12/2023, 09:59:31"
+        500:
+          description: "Internal Server Error"
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "Bad Request: Project was not added"
+  /get_project/{id}:
+    get:
+      summary: "Get project by ID"
+      tags:
+        - Projects
+      description: "The user can retrieve a project by providing the Project's ID"
+      produces:
+        - "application/json"
+      parameters:
+          - in: "path"
+            name: "id"
+            description: "ID of the project to delete"
+            required: true
+            type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id:
+                  type: "string"
+                  example: 1
+                name:
+                  type: "string"
+                  example: 1
+                dataset_path:
+                  type: "string"
+                  example: "/path/to/dataset"
+                config_path:
+                  type: "string"
+                  example: "/path/to/configuration"
+                date:
+                  type: "string"
+                  example: "24/12/2023, 09:59:31"
+        422:
+          description: "Unprocessable Entity"
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "Project was not retrieved (Invalid ID)"
+  /add_project:
+    post:
+      summary: "Add a new project"
+      tags:
+        - Projects
+      description: "The user can add a new project by providing a new Project Name"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Project object"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                example: "project name"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "Project added successfully"
+        422:
+          description: "Unprocessable Entity"
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "Project was not added"
+  /upload:
+    post:
+      summary: The user can upload a .csv file (attach to new project using project name optional)
+      tags:
+        - Files
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: file
+          type: file
+          required: true
+          description: The CSV file to upload
+        - in: formData
+          name: project_name
+          type: string
+          required: false
+          description: Project Name
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "File uploaded successfully"
+        '400':
+          description: Bad request
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "file not uploaded"
+        '413':
+          description: Content Too Large
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "File size exceeds the limit"
+        '415':
+          description: Unsupported Media Type
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "Invalid file type"
+        '422':
+          description: "Unprocessable Entity"
+          schema:
+            type: "object"
+            properties:
+              Message:
+                type: "string"
+                example: "No file uploaded"
+  /remove_project/{id}:
+      delete:
+        summary: "Delete a project by ID"
+        tags:
+        - Projects
+        description: "The user can delete a project by providing the Project's ID"
+        produces:
+          - "application/json"
+        parameters:
+          - in: "path"
+            name: "id"
+            description: "ID of the project to delete"
+            required: true
+            type: "string"
+        responses:
+          200:
+            description: "Successful operation"
+            schema:
+              type: "object"
+              properties:
+                Message:
+                  type: "string"
+                  example: "Project deleted successfully"
+          422:
+            description: "Unprocessable Entity"
+            schema:
+              type: "object"
+              properties:
+                Message:
+                  type: "string"
+                  example: "Project was not deleted (Invalid ID)"

@@ -1,0 +1,6 @@
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'sqlite:///development.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+UPLOAD_FOLDER = 'files'
+ALLOWED_EXTENSIONS = {'csv'}
+MAX_CONTENT_LENGTH = 1024 * 1024 * 1024  # 1GB max file size

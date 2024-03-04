@@ -1,0 +1,6 @@
+DEBUG = False
+SQLALCHEMY_DATABASE_URI = 'sqlite:///production.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+UPLOAD_FOLDER = 'files'
+ALLOWED_EXTENSIONS = {'csv'}
+MAX_CONTENT_LENGTH = 1024 * 1024 * 1024  # 1GB max file size
